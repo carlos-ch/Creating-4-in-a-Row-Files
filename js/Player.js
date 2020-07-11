@@ -35,19 +35,8 @@ class Player {
    */
   get activeToken() {
     return this.unusedTokens[0];
+
   }
 
 
 }
-
-
-
-/**
-*Differentiate between players through colors or numbers.
-*instantiating a player using the class Player
-*a token can have a coordinate or identifiable position on the Board
-*Every token can have an id and be created using the token class
-*The tokens will have different colors, the colors of the players
-*Monitoring whose turn it is can be done highlighting the next token to be played, and its color will hint to the player next up.
-
-*/

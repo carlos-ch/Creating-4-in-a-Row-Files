@@ -45,4 +45,45 @@ class Game {
     this.activePlayer.activeToken.drawHTMLToken();
     this.ready = true;
   }
+
+  /**
+   * Branches code, depending on what key user presses
+   * @param {object}    event - Keydown event object
+   */
+  handleKeydown(event) {
+    if (this.ready) {
+      switch (event.key) {
+        case "ArrowLeft":
+          //move token to left
+          this.activePlayer.activeToken.moveLeft()
+          break;
+        case "ArrowRight":
+          //move toke to right
+          this.activePlayer.activeToken.moveRight(this.board.columns)
+          break;
+        case "ArrowDown":
+          //drop token
+          this.playToken()
+          break;
+      }
+    }
+  }
+  /**
+   * Check for empty space in targeted column for token drop.
+   * Check that the targeted column is not full
+   */
+  playToken() {
+    let activeToken = this.activePlayer.activeToken
+    let targetColumn = this.board.spaces[activeToken.columnLocation];
+    let targetSpace = null;
+    for (var i = 0; i < targetColumn.length; i++) {
+      if (targetColumn[i].token === null) {
+        targetSpace = targetColumn[i];
+      }
+    };
+    if (targetSpace.y !== 0) {
+      this.ready = false;
+      activeToken.drop(targetSpace)
+    }
+  }
 }

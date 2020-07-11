@@ -37,11 +37,3 @@ class Board {
      }
    }
 }
-
-
-
-/** Properties and methods of the board object
-* rows - columns - spaces can be part of the object
-* a method that detects the position a token is dropped
-*
-*/
