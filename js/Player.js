@@ -38,5 +38,16 @@ class Player {
 
   }
 
+  /**
+   * Check if a player has  unused tokens left
+   * @return {Boolean}    boolean value indicating if player has tokens left or not
+   */
+  checkTokens() {
+    return this.tokens.some(token => token.dropped === false);
+    /**
+     * OR
+     */
+    // return this.unusedTokens.length == 0 ? false : true;
+  }
 
 }

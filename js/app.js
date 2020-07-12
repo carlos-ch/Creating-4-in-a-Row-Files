@@ -15,4 +15,5 @@ button.addEventListener('click', function() {
  */
  document.addEventListener('keydown', (event) => {
    game.handleKeydown(event);
+   console.log(game.ready)
  });

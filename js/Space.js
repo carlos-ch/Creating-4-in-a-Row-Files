@@ -7,6 +7,18 @@ class Space {
     this.diameter = 76;
     this.radius = this.diameter/2;
   }
+  /**
+   * Checks if space has an associated token to find its owner
+   * @return {(null|object)}    returns null or the object of the owner associated with the token
+   */
+  get owner() {
+    let token = this.token
+    if (token !== null) {
+      return token.owner;
+    } else {
+      return token;
+    }
+  }
 
   drawSVGSpace() {
     const svgSpace = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -21,5 +33,13 @@ class Space {
     document.getElementById("mask").appendChild(svgSpace);
 
   }
+
+  /**
+   * Updates space to reflect a token has been dropped into it.
+   * @param {object}    token - the dropped token
+   */
+   mark(token) {
+     this.token = token;
+   }
 
 }
